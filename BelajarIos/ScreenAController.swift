@@ -28,7 +28,7 @@ class ScreenAController: UIViewController, UITextFieldDelegate,UIPickerViewDataS
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // enable multiple selection for water, beer and wine buttons.
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScreenAController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ScreenAController.dismissKeyboard))
         let picker : UIPickerView
         picker = UIPickerView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         
@@ -53,8 +53,8 @@ class ScreenAController: UIViewController, UITextFieldDelegate,UIPickerViewDataS
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
 //        tap.cancelsTouchesInView = false
 //        self.mTxtTanggalLahir.delegate = self;
-//        self.mTxtNamaLengkap.delegate = self;
-//        view.addGestureRecognizer(tap)
+        self.mTxtNamaLengkap.delegate = self;
+        view.addGestureRecognizer(tap)
         
     }
     
