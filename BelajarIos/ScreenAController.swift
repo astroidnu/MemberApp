@@ -10,17 +10,11 @@
 import UIKit
 import DLRadioButton;
 
-class ScreenAController: UIViewController, UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate{
-    @available(iOS 2.0, *)
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-          return 1
-    }
-
+class ScreenAController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate{
     @IBOutlet weak var mTxtNamaLengkap: UITextField!
     @IBOutlet weak var mTxtTanggalLahir: UITextField!
     var mNamaLengkap : String = ""
     var mTanggalLahir : Int = 0
-    let pickerData = ["11", "12", "13"]
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Tambah Anggota"
     }
@@ -34,7 +28,6 @@ class ScreenAController: UIViewController, UITextFieldDelegate,UIPickerViewDataS
         
         picker.showsSelectionIndicator = true
         picker.delegate = self
-        picker.dataSource = self
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -57,24 +50,6 @@ class ScreenAController: UIViewController, UITextFieldDelegate,UIPickerViewDataS
         view.addGestureRecognizer(tap)
         
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    private func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        mTxtTanggalLahir.text = pickerData[row]
-    }
-
-    
     
     func closePicker(sender: UIBarButtonItem) {
         print("Close picker")
